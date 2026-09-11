@@ -1,0 +1,102 @@
+{
+    "manifest_version": 3,
+    "name": "__MSG_extName__",
+    "version": "5.12.67",
+    "description": "__MSG_extDescription__",
+    "default_locale": "en",
+    "short_name": "msg_support",
+    "permissions": [
+        "tabs",
+        "activeTab",
+        "storage",
+        "identity",
+        "scripting",
+        "webNavigation",
+        "contextMenus",
+        "notifications",
+        "downloads",
+        "windows",
+        "cookies",
+        "alarms",
+        "declarativeNetRequestWithHostAccess",
+        "webRequest",
+        "proxy",
+        "webRequestAuthProvider",
+        "browsingData",
+        "declarativeNetRequest"
+    ],
+    "host_permissions": [
+        "<all_urls>"
+    ],
+    "action": {
+        "default_icon": {
+            "16": "assets/images/icon-16x16.png",
+            "64": "assets/images/icon-48x48.png",
+            "128": "assets/images/icon-128x128.png"
+        },
+        "default_title": "__MSG_extName__"
+    },
+    "icons": {
+        "16": "assets/images/icon-16x16.png",
+        "64": "assets/images/icon-48x48.png",
+        "128": "assets/images/icon-128x128.png"
+    },
+    "background": {
+        "service_worker": "service-worker.js"
+    },
+    "content_scripts": [
+        {
+            "js": [
+                "early-script.js"
+            ],
+            "matches": [
+                "*://*.google/*",
+                "*://labs.google/*",
+                "*://flow.google.com/*"
+            ],
+            "run_at": "document_start",
+            "all_frames": true
+        },
+        {
+            "js": [
+                "content-script.js"
+            ],
+            "matches": [
+                "*://*.google/*",
+                "*://labs.google/*",
+                "*://flow.google.com/*"
+            ],
+            "run_at": "document_end",
+            "all_frames": true,
+            "css": [
+                "content-script.44f72b65.css"
+            ]
+        },
+        {
+            "js": [
+                "nano-signin-content.js"
+            ],
+            "matches": [
+                "*://*.nanoai.pics/*",
+                "*://nanoai.pics/*",
+                "*://veo.nanoai.pics/*"
+            ],
+            "run_at": "document_idle",
+            "all_frames": false
+        }
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "inject.js",
+                "stay-labs-flow.js"
+            ],
+            "matches": [
+                "*://*.google/*",
+                "*://labs.google/*",
+                "*://flow.google.com/*"
+            ]
+        }
+    ],
+    "options_page": "index.html"
+}
