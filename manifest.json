@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "__MSG_extName__",
-    "version": "5.12.70",
+    "version": "5.13.16",
     "description": "__MSG_extDescription__",
     "default_locale": "en",
     "short_name": "msg_support",
@@ -69,7 +69,7 @@
             "run_at": "document_end",
             "all_frames": true,
             "css": [
-                "content-script.44f72b65.css"
+                "content-script.eaa27cbc.css"
             ]
         },
         {
